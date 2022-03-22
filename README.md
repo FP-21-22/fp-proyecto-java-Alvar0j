@@ -1,5 +1,5 @@
 # Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
-Autor/a: \<nombre del autor\>   uvus:\<uvus del autor\>
+Autor: Álvaro Jiménez Osuna   uvus:alvjimosu
 
 Aquí debes añadir la descripción del dataset y un enunciado del dominio del proyecto.
 
