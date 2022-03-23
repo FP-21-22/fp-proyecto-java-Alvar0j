@@ -1,6 +1,7 @@
 package fp.vacunas;
 
 import java.time.LocalDate;
+
 import java.util.Objects;
 import fp.clinico.Checkers;
 
@@ -16,6 +17,7 @@ public record Vacunacion(
 		Integer numeroPersonas) {
 
 	//Propiedades derivadas
+
 	public Integer numeroTotal() {
 		Integer res = this.pfizer() + this.moderna() + 
 				this.janssen() + this.astrazeneca();
@@ -112,4 +114,11 @@ public record Vacunacion(
 
 	}
 
+	//-------------------------------------------------------------------//
+
+	public static void main (String[] args) {
+		Vacunacion p1 = parseo("2021-02-02;Algeciras;2;0;0;0;20");
+		System.out.println(p1);
+
+	}
 }

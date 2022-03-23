@@ -44,7 +44,7 @@ public record Persona(
 
 	//-------------------------------------------------------------------//
 
-	//(b) Criterio de igualdad - (por defecto asociado al record)
+	//Criterio de igualdad - (por defecto asociado al record)
 
 	@Override
 	public int hashCode() {
@@ -104,5 +104,12 @@ public record Persona(
 		return res;
 
 	}
-
+	
+	//Método Main
+	
+	public static void main (String[] args) {
+		Persona p1 = parseo("Alvaro,Jimenez Osuna,23456789A,2003-02-03");
+		System.out.println(p1);
+		
+	}
 }

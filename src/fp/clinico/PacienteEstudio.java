@@ -7,9 +7,10 @@ public record PacienteEstudio(
 		String id, 
 		String genero,
 		Double edad, 
-		Double glucosa,
 		Boolean hipertension,
-		Boolean enfermedadDelCorazon) implements Comparable<PacienteEstudio> {
+		Boolean enfermedadDelCorazon,
+		TipoResidencia tipoResidencia,
+		Double glucosa) implements Comparable<PacienteEstudio> {
 
 	//Propiedades Derivadas
 
@@ -43,6 +44,7 @@ public record PacienteEstudio(
 				,glucosa >= 0);
 	}
 
+
 	//-------------------------------------------------------------------//
 
 	// Representación como cadena - (informa del id y la edad del paciente)
@@ -51,6 +53,7 @@ public record PacienteEstudio(
 		String res = this.id()+ "," + this.edad();
 		return res;
 	}
+
 
 	//-------------------------------------------------------------------//
 
@@ -97,14 +100,14 @@ public record PacienteEstudio(
 	// Metodo static of:
 
 	public static PacienteEstudio of (String id, String genero, Double edad,
-			Boolean hipertension, Boolean enfermedadDelCorazon ) {
-		PacienteEstudio res = new PacienteEstudio(id, genero, edad, edad, hipertension, enfermedadDelCorazon);
+			Boolean hipertension, Boolean enfermedadDelCorazon,TipoResidencia tipoResidencia,Double glucosa ) {
+		PacienteEstudio res = new PacienteEstudio(id, genero, edad, hipertension, enfermedadDelCorazon, tipoResidencia, glucosa);
 		return res;
 
 	}
 
 	// Metodo static parse:
-	//TODO
+
 	public static PacienteEstudio parseo(String linea) {
 		Checkers.checkNoNull("Linea vacia", linea);
 		String [] trozos = linea.split(";");
@@ -114,10 +117,17 @@ public record PacienteEstudio(
 		Double edad = Double.parseDouble(trozos[2]);
 		Boolean hipertension = Boolean.parseBoolean(trozos[3]);
 		Boolean enfermedadDelCorazon = Boolean.parseBoolean(trozos[4]);
-		TipoResidencia tipoResidencia = TipoResidencia.valueOf(trozos[4]);
-		Double glucosa = Double.parseDouble(trozos[5]);
+		TipoResidencia tipoResidencia = TipoResidencia.valueOf(trozos[5]);
+		Double glucosa = Double.parseDouble(trozos[6]);
 
-		return new PacienteEstudio (id,genero,edad,edad,hipertension,enfermedadDelCorazon);
+		return new PacienteEstudio (id,genero,edad,hipertension,enfermedadDelCorazon,tipoResidencia,glucosa);
 	}
+	
+	//Metodo Main del Parseo
 
+	public static void main (String[] args) {
+		PacienteEstudio p1 = parseo("1234;Macho;13;true;true;URBANA;80.83");
+		System.out.println(p1);
+
+	}
 }
