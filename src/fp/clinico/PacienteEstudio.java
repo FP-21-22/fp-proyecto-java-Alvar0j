@@ -130,4 +130,5 @@ public record PacienteEstudio(
 		System.out.println(p1);
 
 	}
+	
 }

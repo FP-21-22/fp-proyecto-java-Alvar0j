@@ -9,21 +9,19 @@ public class Medicamento {
 	
 	//Atributos
 	
-	private String nombre;
-	private TipoMedicamento tipoMedicamento;
-	private String codigoEnfermedad;
-	private String farmaceutica;
-	private Double puntuacion;
-	private Integer indiceSom;
-	private LocalDate fechaCatalogo;
-	private Boolean tratarEnfermedad;
-	
+	public String nombre;
+	public TipoMedicamento tipoMedicamento;
+	public String codigoEnfermedad;
+	public String farmaceutica;
+	public Double puntuacion;
+	public Integer indiceSom;
+	public LocalDate fechaCatalogo;
 	
 	//Propiedades Derivadas
 	
-	private Boolean tratarEnfermedad(String cadena) {
+	public Boolean tratarEnfermedad(String cadena) {
 		Boolean res = false;
-		if (this.codigoEnfermedad == cadena) {
+		if (cadena.equals(getCodigoEnfermedad())) {
 			res = true;
 		}
 		return res;
@@ -51,9 +49,6 @@ public class Medicamento {
 	}
 	public Double getPuntuacion() {
 		return puntuacion;
-	}
-	public Boolean getTratarEnfermedad() {
-		return tratarEnfermedad;
 	}
 	public Integer getIndiceSom() {
 		return indiceSom;
@@ -93,11 +88,12 @@ public class Medicamento {
 		return res;
 
 	}
+	
 	@Override
 	public String toString() {
-		return "Medicamento [nombre=" + nombre + ", tipoMedicamento=" + tipoMedicamento + ", codigoEnfermedad="
-				+ codigoEnfermedad + ", farmaceutica=" + farmaceutica + ", puntuacion=" + puntuacion + ", indiceSom="
-				+ indiceSom + ", fechaCatalogo=" + fechaCatalogo + "]";
+		return "Medicamento [ nombre = " + nombre + ", tipoMedicamento = " + tipoMedicamento + ", codigoEnfermedad = "
+				+ codigoEnfermedad + ", farmaceutica = " + farmaceutica + ", puntuacion = " + puntuacion + ", indiceSom = "
+				+ indiceSom + ", fechaCatalogo = " + fechaCatalogo + " ]";
 	}
 	
 	//-------------------------------------------------------------------//
@@ -140,6 +136,5 @@ public class Medicamento {
 	//Comentarios
 	
 	
-
 
 }

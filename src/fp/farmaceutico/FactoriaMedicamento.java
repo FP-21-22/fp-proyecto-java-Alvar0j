@@ -23,4 +23,5 @@ public class FactoriaMedicamento {
 		return new Medicamento(nombre,tipoMedicamento,codigoEnfermedad,farmaceutica,
 				puntuacion,indiceSom,fechaCatalogo);
 	}
+	
 }

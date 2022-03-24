@@ -24,10 +24,22 @@ public record Persona(
 	//-------------------------------------------------------------------//
 
 	//Restricciones
+	// Metodo Auxiliar
+	public static Boolean sonDigitos(String cadena) {
+		Boolean res = true;
+		for(int i=0; i<cadena.length();i++) {
+			res = Character.isDigit(cadena.charAt(i));
+			if(!res) {
+				break;
+			}
+		}
+		return res;
+	}
 
 	public Persona{
 
-		Checkers.check("El dni debe ser una cadena con ocho dígitos y seguidos de una letra.", dni.length()== 9 && (dni.charAt(dni.length()-1)>= 'A' && dni.charAt(dni.length()-1) <= 'Z'));	
+		Checkers.check("El dni debe ser una cadena con ocho dígitos y seguidos de una letra.", (dni.length()== 9) && sonDigitos(dni.substring(0, dni.length()-1)) 
+				&& (dni.charAt(dni.length()-1)>= 'A' && dni.charAt(dni.length()-1) <= 'Z'));
 		Checkers.check("La fecha de nacimiento debe ser anterior a la fecha actual",fechaDeNacimiento.isBefore(LocalDate.now()));
 	}
 
@@ -104,12 +116,12 @@ public record Persona(
 		return res;
 
 	}
-	
+
 	//Método Main
-	
+
 	public static void main (String[] args) {
-		Persona p1 = parseo("Alvaro,Jimenez Osuna,23456789A,2003-02-03");
+		Persona p1 = parseo("Alvaro,Jimenez Osuna,23456799A,2003-02-03");
 		System.out.println(p1);
-		
+
 	}
 }

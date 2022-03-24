@@ -121,4 +121,5 @@ public record Vacunacion(
 		System.out.println(p1);
 
 	}
+	
 }
