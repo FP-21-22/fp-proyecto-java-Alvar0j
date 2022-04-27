@@ -24,12 +24,12 @@ public record PacienteEstudio(
 	//		return res;
 	//	}
 
-	public Object factorDeRiesgo() {
+	public Boolean factorDeRiesgo() {
 		boolean factorDeRiesgo = false;
 		if (hipertension == true && edad >= 40) {
 			factorDeRiesgo = true;
 		}
-		return (Boolean) factorDeRiesgo;
+		return factorDeRiesgo;
 	}
 
 	//-------------------------------------------------------------------//
@@ -130,5 +130,6 @@ public record PacienteEstudio(
 		System.out.println(p1);
 
 	}
+	
 	
 }

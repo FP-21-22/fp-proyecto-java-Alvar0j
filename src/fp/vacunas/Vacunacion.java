@@ -1,7 +1,9 @@
 package fp.vacunas;
 
-import java.time.LocalDate;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 import fp.clinico.Checkers;
 
@@ -30,7 +32,7 @@ public record Vacunacion(
 
 	public Vacunacion{
 
-		Checkers.check("La fecha debe ser posterior al 01/02/2021", fecha.isAfter(LocalDate.of(2021, 02, 01)));
+		Checkers.check("La fecha debe ser posterior al 02/01/2021", fecha.isAfter(LocalDate.of(2021, 01, 02)));
 	}
 
 	//-------------------------------------------------------------------//
@@ -115,11 +117,12 @@ public record Vacunacion(
 	}
 
 	//-------------------------------------------------------------------//
-
+	
 	public static void main (String[] args) {
 		Vacunacion p1 = parseo("2021-02-02;Algeciras;2;0;0;0;20");
 		System.out.println(p1);
 
 	}
-	
+
+
 }
