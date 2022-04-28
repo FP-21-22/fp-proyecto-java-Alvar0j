@@ -92,7 +92,7 @@ Los tipos implementados son:
 			- Incluya un método main para comprobar el correcto funcionamiento del método
 				parse. public static void main(String[] args){ ... }
 
-###Tipo Paciente:
+### Tipo Paciente:
 	* Paciente:
 		• Propiedades:
 			- persona, de tipo Persona.
@@ -110,7 +110,7 @@ Los tipos implementados son:
 			- Método static of: Recibe nombre, apellidos, dni, fecha de nacimiento, código y fecha y hora de ingreso y devuelve un paciente.
 			- Método static of: Recibe un objeto persona, un código y una fecha y hora de ingreso y devuelve un paciente.
 
-###Tipo PacienteEstudio:
+### Tipo PacienteEstudio:
 	* PacienteEstudio:
 		• Propiedades:
 			- id, de tipo String.
@@ -135,7 +135,7 @@ Los tipos implementados son:
 			- Incluya un método main para comprobar el correcto funcionamiento del método
 				parse. public static void main(String[] args){ ... }
 
-###Tipo Vacunacion:
+### Tipo Vacunacion:
 	*Vacunacion:
 		• Propiedades:
 			- fecha, de tipo LocalDate.
@@ -160,7 +160,7 @@ Los tipos implementados son:
 				
 				
 				
-##Tipo Medicamento: (Clase)
+## Tipo Medicamento: (Clase)
 	* Medicamento:
 		• Propiedades:
 			- nombre del medicamento, de tipo String, observable.
@@ -182,10 +182,10 @@ Los tipos implementados son:
 		• Criterio de igualdad: por nombre del medicamento y farmacéutica.
 		• Orden natural: por nombre del medicamento y en caso de igualdad por la farmacéutica.
 		
-###Otras operaciones:
+### Otras operaciones:
 
     *Clase FactoriaMedicamentos: Se ha programado una clase FactoriaMedicamentos que incluye, de momento, un metodo static de nombre parseaMedicamento, que recibe una cadena con un formato especifico y devuelve un objeto del tipo Medicamento.
     *Clase TestFactoriaMedicamentos: Se ha implementado tambien una clase de nombre TestFactoriaMedicamentos que comprueba el correcto funcionamiento del metodo anterior.
 
 
-### ------------------------------HASTA AQUI SERÍA LA PRIMERA ENTREGA------------------------------
+------------------------------HASTA AQUI SERÍA LA PRIMERA ENTREGA------------------------------
