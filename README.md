@@ -7,8 +7,8 @@ Aquí debes añadir la descripción del dataset y un enunciado del dominio del p
 ## Estructura de las carpetas del proyecto
 
 * **/src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
-  * **fp.\<FactoriaMedicamentos\>**: Paquete que contiene los tipos del proyecto.
-  * **fp.\<FactoriaVacunaciones\>**: Paquete que contiene los tipos del proyecto.
+  * **fp.\<factoriamedicamentos\>**: Paquete que contiene los tipos del proyecto.
+  * **fp.\<factoriavacunaciones\>**: Paquete que contiene los tipos del proyecto.
   * **fp.\<clinico\>**: Paquete que contiene los tipos del proyecto.
   * **fp.\<farmaceutico\>**: Paquete que contiene los tipos del proyecto.
   * **fp.\<farmaceutico\>.test**: Paquete que contiene las clases de test de "fp.farmacutico.
@@ -54,9 +54,15 @@ El dataset está compuesto por \<\> columnas, con la siguiente descripción:
 
 Los tipos implementados son:
 
+	* **Tipo Checkers: Class.
+	* **Tipo EstudioClinico: Interface.
+	* **Tipos EstudioClinicoBucles: Class.
+	* **Tipos EstudioClinicoStream: Class.
     * **Tipo Paciente: Record.
     * **Tipo PacienteEstudio: Record.
     * **Tipo Persona: Record.
+    * **Tipos TestEstudioClinicoBucles: Módulo test de la clase EstudioClinicoBucles.
+	* **Tipos TestEstudioClinicoStream: Módulo test de la clase EstudioClinicoStream.
     * **Tipo TipoResidencia: Enumerado.
     * **Tipo FactoriaMedicamentos: Clase, contiene el parseo de la clase Medicamento.
     * **Tipo Medicamento: Clase.
@@ -65,37 +71,27 @@ Los tipos implementados son:
     * **Tipo Vacunacion: Record
 
 ### Tipo Persona (Record)
+	* **Persona
+		• Propiedades:
+			- nombre, de tipo String.
+			- apellidos, de tipo String.
+			- dni, de tipo String.
+			- fecha de nacimiento, de tipo LocalDate.
+			- edad, de tipo Integer. (Derivada a partir de la fecha de nacimiento).
+		• Restricciones:
+			- La fecha de nacimiento debe ser anterior a la fecha actual.
+			- El dni debe ser una cadena con ocho dígitos y seguidos de una letra.
+		• Representación como cadena: por defecto asociado al record.
+		• Criterio de igualdad: por defecto asociado al record.
+		• Orden natural: por dni.
+		• Comentarios: añada los siguientes métodos de factoría:
+    
+			- Método static of: Recibe nombre, apellidos, dni y fecha de nacimiento y devuelve una persona.
+			- Método static parse: Recibe una cadena con un formato específico y devuelve una persona.
+				Ejemplo de cadena: “Juan, García Rodríguez, 12755078Z, 20/03/1965”.
+			- Incluya un método main para comprobar el correcto funcionamiento del método
+				parse. public static void main(String[] args){ ... }
 
-
-**Propiedades**:
-
-   - nombre, de tipo String.
-   - apellidos, de tipo String.
-   - dni, de tipo String.
-   - fecha de nacimiento, de tipo LocalDate.
-   - edad, de tipo Integer. (derivada a partir de la fecha de nacimiento).
-
-**Constructores**: 
-
-- C1: Descripción del constructor 1.
-- C2: Descripción del constructor 2.
-- ...
-
-**Restricciones**:
- 
-
-  - R1: La fecha de nacimiento debe ser anterior a la fecha actual.
-  - R2: El dni debe ser una cadena con ocho digitos y seguidos de una letra.
-
-**Criterio de igualdad**:  Por defecto asociado al record.
-
-**Criterio de ordenación**:Por dni.
-
-**Otras operaciones**:
-
-   - Metodo static of: recibe nombre, apellidos, dni y fecha de nacimiento y devuelve una persona.
-   - Metodo static parse: Recibe una cadena con un formato específico y devuelve una persona.
-   - Metodo main para comprobar el correcto funcionamiento del metodo parse.
 Tipo Persona (Record)
 
 Propiedades:
