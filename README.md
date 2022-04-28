@@ -7,24 +7,51 @@ Aquí debes añadir la descripción del dataset y un enunciado del dominio del p
 ## Estructura de las carpetas del proyecto
 
 * **/src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
+  * **fp.\<FactoriaMedicamentos\>**: Paquete que contiene los tipos del proyecto.
+  * **fp.\<FactoriaVacunaciones\>**: Paquete que contiene los tipos del proyecto.
   * **fp.\<clinico\>**: Paquete que contiene los tipos del proyecto.
-  * **fp.\<clinico\>**: Paquete que contiene los tipos del proyecto.
-  * **fp.\<farmaceutico\>.test**: Paquete que contiene las clases de test del proyecto.
+  * **fp.\<farmaceutico\>**: Paquete que contiene los tipos del proyecto.
+  * **fp.\<farmaceutico\>.test**: Paquete que contiene las clases de test de "fp.farmacutico.
   * **fp.utiles**:  Paquete que contiene las clases de utilidad. 
+  * **fp.\<vacunas\>**: Paquete que contiene el módulo "Vacunacion".
 * **/data**: Contiene el dataset o datasets del proyecto
-    * **\<dataset1.csv\>**: Añade una descripción genérica del dataset.
-    * **\<dataset2.csv\>**: Añade una descripción del resto de datasets que puedas tener.
-    
+    * **\<cca_vacunas_3.csv\>**: Informacion sobre la vacunacion de las comunidades autónomas.
+    * **\<estudio_clinico.csv\>**: Estudio clínico de la población.
+    * **\<medicamentos.csv\>**: Informacion sobre medicamentos.
+     
 ## Estructura del *dataset*
 
 Aquí debes describir la estructura del dataset explicando qué representan los datos que contiene y la descripción de cada una de las columnas. Incluye también la URL del dataset original.
 
-El dataset está compuesto por \<N\> columnas, con la siguiente descripción:
+El dataset está compuesto por \<\> columnas, con la siguiente descripción:
 
-* **\<columna 1>**: de tipo \<tipo\>, representa....
-* **\<columna 2>**: de tipo \<tipo\>, representa....
-....
+* **\<cca_vacunas_3.csv\>**:
+	* **\<columna 1>**: de tipo LocalDate \<fecha_publicacion\>.
+	* **\<columna 2>**: de tipo String \<CCAA\>.
+	* **\<columna 3>**: de tipo Integer \<Pfizer\>.
+	* **\<columna 4>**: de tipo Integer \<Moderna\>.
+	* **\<columna 5>**: de tipo Integer \<AstraZeneca\>.
+	* **\<columna 6>**: de tipo Integer \<Janssen\>.
+	* **\<columna 7>**: de tipo Integer \<Personas_pauta_completa\>.
 
+* **\estudio_clinico.csv\>**:
+	* **\<columna 1>**: de tipo Integer \<Id\>.
+	* **\<columna 2>**: de tipo String \<Genero\>.
+	* **\<columna 3>**: de tipo Integer \<Edad\>.
+	* **\<columna 4>**: de tipo Boolean \<Hipertension\>.
+	* **\<columna 5>**: de tipo Boolean \<FactordeRiesgo\>.
+	* **\<columna 6>**: de tipo Enum \<TipoResidencia\>.
+	* **\<columna 7>**: de tipo Double \<Glucosa\>.
+
+* **\medicamentos.csv\>**:
+	* **\<columna 1>**: de tipo String \<Nombre_medicamento\>.
+	* **\<columna 2>**: de tipo String \<Tipo_medicamento\>.
+	* **\<columna 3>**: de tipo String \<Codigo_enfermedad\>.
+	* **\<columna 4>**: de tipo String \<Farmaceutica\>.
+	* **\<columna 5>**: de tipo Double \<Puntuacion\>.
+	* **\<columna 6>**: de tipo Integer \<Indice_somatico\>.
+	* **\<columna 7>**: de tipo LocalDate \<Fecha_catalogo\>.
+	
 ## Tipos implementados
 
 Los tipos implementados son:
