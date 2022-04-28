@@ -1,4 +1,4 @@
-package FactoriaMedicamentos;
+package factoriamedicamentos;
 
 import java.util.List;
 

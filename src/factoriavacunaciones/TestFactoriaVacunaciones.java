@@ -1,4 +1,4 @@
-package FactoriaVacunaciones;
+package factoriavacunaciones;
 
 import java.util.List;
 

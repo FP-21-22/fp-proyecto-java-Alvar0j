@@ -1,4 +1,4 @@
-package FactoriaMedicamentos;
+package factoriamedicamentos;
 
 import java.io.IOException;
 import java.nio.file.Files;

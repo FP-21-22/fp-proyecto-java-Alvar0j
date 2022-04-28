@@ -21,8 +21,6 @@ Aquí debes añadir la descripción del dataset y un enunciado del dominio del p
      
 ## Estructura del *dataset*
 
-Aquí debes describir la estructura del dataset explicando qué representan los datos que contiene y la descripción de cada una de las columnas. Incluye también la URL del dataset original.
-
 El dataset está compuesto por \<\> columnas, con la siguiente descripción:
 
 * **\<cca_vacunas_3.csv\>**:
@@ -34,7 +32,7 @@ El dataset está compuesto por \<\> columnas, con la siguiente descripción:
 	* **\<columna 6>**: de tipo Integer \<Janssen\>.
 	* **\<columna 7>**: de tipo Integer \<Personas_pauta_completa\>.
 
-* **\estudio_clinico.csv\>**:
+* **\<estudio_clinico.csv\>**:
 	* **\<columna 1>**: de tipo Integer \<Id\>.
 	* **\<columna 2>**: de tipo String \<Genero\>.
 	* **\<columna 3>**: de tipo Integer \<Edad\>.
@@ -43,7 +41,7 @@ El dataset está compuesto por \<\> columnas, con la siguiente descripción:
 	* **\<columna 6>**: de tipo Enum \<TipoResidencia\>.
 	* **\<columna 7>**: de tipo Double \<Glucosa\>.
 
-* **\medicamentos.csv\>**:
+* **\<medicamentos.csv\>**:
 	* **\<columna 1>**: de tipo String \<Nombre_medicamento\>.
 	* **\<columna 2>**: de tipo String \<Tipo_medicamento\>.
 	* **\<columna 3>**: de tipo String \<Codigo_enfermedad\>.
