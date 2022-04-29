@@ -188,8 +188,6 @@ Los tipos implementados son:
     *Clase TestFactoriaMedicamentos: Se ha implementado tambien una clase de nombre TestFactoriaMedicamentos que comprueba el correcto funcionamiento del metodo anterior.
 
 
-------------------------------HASTA AQUI SERÍA LA PRIMERA ENTREGA------------------------------
-
 ## Tipo EstudioClinico: (Interfaz)
 	* EstudioClinico:
 		• Estos son los métodos/operaciones a realizar:
