@@ -189,3 +189,71 @@ Los tipos implementados son:
 
 
 ------------------------------HASTA AQUI SERÍA LA PRIMERA ENTREGA------------------------------
+
+## Tipo EstudioClinico: (Interfaz)
+	* EstudioClinico:
+		• Estos son los métodos/operaciones a realizar:
+		
+		public interface EstudioClinico { // Propiedades de lista
+			Integer numeroPacientes();
+			void incluyePaciente(PacienteEstudio paciente);
+			void incluyePacientes(Collection<PacienteEstudio> pacientes);
+			void eliminaPaciente(PacienteEstudio paciente);
+			Boolean estaPaciente(PacienteEstudio paciente);
+			void borraEstudio();
+	
+			// Método de factoría
+			EstudioClinico of(String nombreFichero);
+			List<PacienteEstudio> leeFichero(String nombreFichero);
+	
+			// Tratamientos secuenciales: implementaciónn funcional vs. imperativa
+			//existe, paraTodo
+			Boolean todosPacienteSonDelTipo(TipoResidencia tipo);
+			Boolean existeAlgunPacienteDelTipo(TipoResidencia tipo);
+	
+			//contador, suma, media
+			Integer numeroPacientesFactorRiesgo();
+			Double edadMediaPacientesConFactorRiesgo();
+			
+			//filtrado
+			List<PacienteEstudio> filtraPacientesPorEdad(Double edad);
+	
+			//devuelve Map que agrupa
+			Map<String,List<PacienteEstudio>> agruparPacientesEdadMayorQuePorGenero(Double edad); //devuelve Map que realiza un cálculo
+			Map< ,Long> numeroPacientesPorGenero();
+			Map< ,Double> edadMediaPacientesPorPorGenero();
+ }
+
+## Tipo EstudioClinicoBucles: (Clase)
+	* EstudioClinicoBucles:
+		- Métodos de propiedades de listas.
+		- Métodos de tratamientos secuenciales.
+		- Métodos para la construcción de diccionarios o mapas
+	
+## Tipo EstudioClinicoStream: (Clase)
+	* EstudioClinicoStream
+		- Métodos de propiedades de listas.
+		
+## Tipo FactoriaMedicamentos: (Clase)
+	* FactoriaMedicamentos:
+	- Contiene un método de nombre leeFichero que, 
+		dada una cadena con el nombre del fichero, devuelve una
+		lista de objetos Medicamento.
+	
+## Tipo FactoriaVacunacion: (Clase)
+	* FactoriaVacunacion:
+	- Contiene un método de nombre leeFichero que, 
+		dada una cadena con el nombre del fichero, devuelve una
+		lista de objetos Vacunacion.
+		
+
+
+
+
+
+
+
+
+
+
+
