@@ -1,8 +1,7 @@
 package factoriavacunaciones;
 
 import java.util.List;
-
-import fp.vacunas.Vacunacion;
+import fp.vacunas.*;
 
 
 public class TestFactoriaVacunaciones {
@@ -13,6 +12,7 @@ public class TestFactoriaVacunaciones {
 		for(Vacunacion e:lista) {
 			System.out.println(e);
 		}
+		
 		
 	}
 }

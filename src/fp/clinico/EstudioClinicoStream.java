@@ -1,12 +1,15 @@
 package fp.clinico;
 
 import java.io.IOException;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class EstudioClinicoStream implements EstudioClinico {
 
@@ -15,6 +18,9 @@ public class EstudioClinicoStream implements EstudioClinico {
 	
 	public EstudioClinicoStream (List<PacienteEstudio> pacientes) {
 		this.pacientesEstudio = pacientes;
+	}
+	public EstudioClinicoStream() {
+		
 	}
 	
 	//-------------------------------------------------------------------//
@@ -112,64 +118,77 @@ public class EstudioClinicoStream implements EstudioClinico {
 	
 	@Override
 	public Boolean todosPacienteSonDelTipo(TipoResidencia tipo) {
-		// TODO Auto-generated method stub
-		return null;
+		Predicate <PacienteEstudio> pr = x->x.tipoResidencia().equals(tipo);
+		return this.pacientesEstudio.stream().allMatch(pr);
 	}
-
+ 
 	//-------------------------------------------------------------------//
 	
 	@Override
 	public Boolean existeAlgunPacienteDelTipo(TipoResidencia tipo) {
-		// TODO Auto-generated method stub
-		return null;
+		Predicate <PacienteEstudio> pr = x->x.tipoResidencia().equals(tipo);
+		return this.pacientesEstudio.stream().anyMatch(pr);
 	}
 
 	//-------------------------------------------------------------------//
 	
 	@Override
 	public Integer numeroPacientesFactorRiesgo() {
-		// TODO Auto-generated method stub
-		return null;
+		Long aux = this.pacientesEstudio.stream().count();
+		return aux.intValue();
 	}
 
 	//-------------------------------------------------------------------//
 	
 	@Override
 	public Double edadMediaPacientesConFactorRiesgo() {
-		// TODO Auto-generated method stub
-		return null;
+		
+		return this.pacientesEstudio.stream().
+				filter(x->x.factorDeRiesgo() == true).
+				mapToDouble(x->x.edad()).
+				average().
+				orElse(0);
 	}
 
 	//-------------------------------------------------------------------//
 	
 	@Override
 	public List<PacienteEstudio> filtraPacientesPorEdad(Double edad) {
-		// TODO Auto-generated method stub
-		return null;
+		Predicate <PacienteEstudio> pr = x->x.edad().equals(edad);
+		
+		return this.pacientesEstudio.stream().filter(pr).collect(Collectors.toList());
 	}
 
 	//-------------------------------------------------------------------//
 	
+	//Devuelve Map que agrupa
 	@Override
 	public Map<String, List<PacienteEstudio>> agruparPacientesEdadMayorQuePorGenero(Double edad) {
-		// TODO Auto-generated method stub
-		return null;
+		return this.pacientesEstudio.stream().
+				filter(x->x.edad() >= edad).
+				collect(Collectors.groupingBy(
+						x->x.genero()));
 	}
 
 	//-------------------------------------------------------------------//
 	
+	//Devuelve Map que realiza un cálculo
 	@Override
 	public Map<String, Long> numeroPacientesPorGenero() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.pacientesEstudio.stream().
+				collect(Collectors.groupingBy(
+						x->x.genero(), 
+						Collectors.counting()));
 	}
 
 	//-------------------------------------------------------------------//
 	
 	@Override
 	public Map<String, Double> edadMediaPacientesPorPorGenero() {
-		// TODO Auto-generated method stub
-		return null;
+		return this.pacientesEstudio.stream().collect(Collectors.groupingBy(
+				x->x.genero(), 
+				Collectors.averagingDouble(
+						x->x.edad())));
 	}
 
 }
