@@ -245,7 +245,38 @@ Los tipos implementados son:
 		lista de objetos Vacunacion.
 		
 
-
+##  Vacunaciones: (Clase)
+	* Clase implementada en fp.vancunas
+	* Se pide programar los siguientes métodos:
+	
+		• anyadeVacunacion: dado un objeto del tipo Vacunacion lo añade al atributo de List<Vacunacion>.
+		• vacunacionesEntreFechas: 
+			dadas dos fechas como parámetros de entrada, devuelve una lista con aquellas vacunaciones entre dichas fechas.
+		• existeNumPersonasPautaCompletaPorEncimaDe: 
+			dada una comunidad y un valor entero, indica si existen o no vacunaciones con un número de personas con la pauta completa de vacunación por encima del valor entero dado.
+		• diaMasVacunacionesEn: 
+			dada una comunidad, devuelve la fecha en la que hubo más personas vacunadas.
+		• vacunacionesPorFecha: 
+			devuelve un mapa, o diccionario, en el que las claves son las fechas y los valores son listas de vacunaciones asociadas a dichas fechas.
+		• maximoNumTotalVacunasporComunidad: 
+			devuelve un mapa, o diccionario, en el que las claves son las comunidades y los valores son el máximo para el número total de vacunas puestas para cada comunidad.
+	
+##  ListadoMedicamentos: (Clase)
+	* Clase implementada en fp.farmaceutico
+	* Se pide programar los siguientes métodos:
+	
+		• existeMedicamentoSegunTipoAnteriorA: 
+			dado un tipo de medicamento y una fecha, 
+			indica si existe un medicamento de dicho tipo posterior a la fecha dada.
+		• nombreMedicamentosPuntuacionMayorA: 
+			dada una puntuación, devuelve un conjunto con los nombres de los medicamentos con una puntuación mayor a la dada.
+		• nombreMedicamentoMayorIndiceSomaticoSegunTipoMedicamento: 
+			dado un tipo de medicamento, devuelve el nombre del medicamento con mayor índice somático.
+			En caso de no haber ninguno, se eleva una excepción.
+		• agrupaTipoMedicamentoSegunPuntuacionMedia: devuelve un diccionario que
+			asocia a cada tipo de medicamento su puntuación media.
+		• fechaCatalogoMasFrecuente: devuelve la fecha del catálogo más frecuente, es decir,
+			la que aparece más veces.
 
 
 
