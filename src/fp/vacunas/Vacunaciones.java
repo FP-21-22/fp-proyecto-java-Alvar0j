@@ -54,9 +54,9 @@ public class Vacunaciones {
 						Vacunacion::fecha,
 						Collectors.counting()
 						));
-		
+
 		Comparator<Map.Entry<LocalDate, Long>> cmp = (x,y) -> x.getValue().compareTo(y.getValue());
-		
+
 		return mapaux.entrySet().stream().
 				max(cmp).
 				get().getKey();
@@ -69,23 +69,25 @@ public class Vacunaciones {
 		return this.vacunacion.stream().
 				collect(Collectors.groupingBy(
 						x->x.fecha().toString()));
-					
+
 	}
-	
+
 	//-------------------------------------------------------------------//
 
-	public Map<Object, IntSummaryStatistics> maximoNumTotalVacunasporComunidad() {
-		return this.vacunacion.stream()
-				.collect(Collectors.groupingBy(x->x.comunidad(),
-						Collectors.summarizingInt(x->x.numeroTotal().intValue())));
+	public Map<Object, Integer> maximoNumTotalVacunasporComunidad() {
+		return this.vacunacion.stream().
+				collect(Collectors.groupingBy(Vacunacion::comunidad,
+						Collectors.collectingAndThen(
+								Collectors.maxBy(
+										Comparator.comparing(
+												Vacunacion::numeroTotal)),
+								opt->opt.get().numeroTotal())));
+
+		//				.collect(Collectors.groupingBy(x->x.comunidad(),
+		//						Collectors.(x->x.numeroTotal().intValue())));
+
 	}
+
 }
-
-
-
-
-
-
-
 
 

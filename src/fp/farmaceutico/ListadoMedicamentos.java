@@ -39,8 +39,8 @@ public class ListadoMedicamentos {
 	public String nombreMedicamentoMayorIndiceSomaticoSegunTipoMedicamento(TipoMedicamento tipo) {
 		return this.medicamentos.stream(). 
 				filter(x->x.tipoMedicamento.equals(tipo)). 
-				collect(Collectors.maxBy(
-						Comparator.comparing(x->x.indiceSom))).toString();
+				max(Comparator.comparing(x->x.indiceSom)).
+				orElseThrow(()-> new IllegalArgumentException("NO HAY NINGUNO")).nombre;
 	}
 	
 	//-------------------------------------------------------------------//
