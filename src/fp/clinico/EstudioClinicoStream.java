@@ -16,7 +16,7 @@ public class EstudioClinicoStream implements EstudioClinico {
 
 	//Atributos
 
-	public List<PacienteEstudio> pacientesEstudio;
+	protected List<PacienteEstudio> pacientesEstudio;
 	
 	// Constructores
 	
@@ -53,7 +53,7 @@ public class EstudioClinicoStream implements EstudioClinico {
 	
 	@Override
 	public void incluyePacientes(Collection<PacienteEstudio> pacientes) {
-		this.pacientesEstudio.addAll(pacientes);
+		 this.pacientesEstudio.addAll(pacientes);
 
 	}
 
@@ -206,6 +206,12 @@ public class EstudioClinicoStream implements EstudioClinico {
 				x->x.genero(), 
 				Collectors.averagingDouble(
 						x->x.edad())));
+	}
+	
+	//Comprobacion de lectura de ficheros de Estudio Clinico Ampliacion Stream:
+
+	public List<PacienteEstudio> getPacientesEstudio() {
+		return pacientesEstudio;
 	}
 
 }

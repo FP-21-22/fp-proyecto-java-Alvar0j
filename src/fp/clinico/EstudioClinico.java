@@ -36,6 +36,9 @@ public interface EstudioClinico {
 	Map<String,Long> numeroPacientesPorGenero();
 	Map<String, Double> edadMediaPacientesPorPorGenero();
 	
+	//Comprobacion de lectura de ficheros de Estudio Clinico Ampliacion Stream:
+	List<PacienteEstudio> getPacientesEstudio();
+	
 	
 	
 	

@@ -259,4 +259,12 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		}
 		return sum/lista.size();
 	}
+
+	//Comprobacion de lectura de ficheros de Estudio Clinico Ampliacion Stream:
+	
+	public List<PacienteEstudio> getPacientesEstudio() {
+		return pacientesEstudio;
+	}
+
+
 }       
