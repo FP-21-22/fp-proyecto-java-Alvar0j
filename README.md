@@ -1,9 +1,6 @@
 # Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
 Autor: Álvaro Jiménez Osuna   uvus:alvjimosu
 
-Aquí debes añadir la descripción del dataset y un enunciado del dominio del proyecto.
-
-
 ## Estructura de las carpetas del proyecto
 
 * **/src**: Contiene los diferentes archivos que forman parte del proyecto. Debe estar estructurado en los siguentes paquetes
