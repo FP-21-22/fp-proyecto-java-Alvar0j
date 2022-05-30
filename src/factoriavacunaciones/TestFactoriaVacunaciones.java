@@ -12,7 +12,5 @@ public class TestFactoriaVacunaciones {
 		for(Vacunacion e:lista) {
 			System.out.println(e);
 		}
-		
-		
 	}
 }

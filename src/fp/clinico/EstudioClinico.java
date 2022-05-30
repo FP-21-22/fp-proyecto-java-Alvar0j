@@ -19,8 +19,6 @@ public interface EstudioClinico {
 	EstudioClinico of(String nombreFichero);
 	List<PacienteEstudio> leeFichero(String nombreFichero);
 	
-	//--------------------------------STREAM--------------------------------//
-	
 	// Tratamientos secuenciales: implementaciónn funcional vs. imperativa //existe, paraTodo
 	Boolean todosPacienteSonDelTipo(TipoResidencia tipo);
 	Boolean existeAlgunPacienteDelTipo(TipoResidencia tipo);

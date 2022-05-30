@@ -14,16 +14,6 @@ public record PacienteEstudio(
 
 	//Propiedades Derivadas
 
-	//	public TipoResidencia tipoResidencia(){
-	//		TipoResidencia res = null;
-	//		if () {
-	//			res = TipoResidencia.RURAL;
-	//		} else {
-	//			res = TipoResidencia.URBANA;
-	//		}
-	//		return res;
-	//	}
-
 	public Boolean factorDeRiesgo() {
 		boolean factorDeRiesgo = false;
 		if (hipertension == true && edad >= 40) {

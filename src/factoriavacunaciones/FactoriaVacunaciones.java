@@ -14,8 +14,10 @@ import fp.vacunas.Vacunacion;
 public class FactoriaVacunaciones {
 
 	public static List<Vacunacion> leeFichero(String fichero){
+		
 		List<Vacunacion> res =new ArrayList<Vacunacion>();
 		List<String> aux = null;
+		
 		try {
 			aux = Files.readAllLines(Paths.get(fichero));
 
@@ -29,7 +31,6 @@ public class FactoriaVacunaciones {
 				res.add(p);
 			}
 			cont++;
-
 		}
 		return res;
 
@@ -51,6 +52,7 @@ public class FactoriaVacunaciones {
 		Integer numeroPersonas = Integer.parseInt(trozos[6]);
 		return new Vacunacion (fecha,comunidad,pfizer,astrazeneca,moderna,janssen,numeroPersonas);
 	}
+	
 	public Integer numeroPacientes() {
 		
 		try {

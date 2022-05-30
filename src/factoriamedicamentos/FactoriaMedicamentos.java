@@ -1,18 +1,17 @@
 package factoriamedicamentos;
 
 import java.io.IOException;
+
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-
-import fp.farmaceutico.FactoriaMedicamento;
 import fp.farmaceutico.Medicamento;
 import fp.farmaceutico.TipoMedicamento;
 import fp.utiles.Checkers;
-import fp.vacunas.Vacunacion;
+
 
 public class FactoriaMedicamentos {
 
@@ -20,6 +19,7 @@ public class FactoriaMedicamentos {
 
 		List<Medicamento> res = new ArrayList<Medicamento>();
 		List<String> aux = null;
+		
 		try {
 			aux = Files.readAllLines(Paths.get(fichero));
 
@@ -33,7 +33,6 @@ public class FactoriaMedicamentos {
 				res.add(p);
 			}
 			cont++;
-
 		}
 		return res;
 

@@ -1,19 +1,13 @@
 package fp.clinico;
 
 import java.io.IOException;
-
-
-
-
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
 
 public class EstudioClinicoBucles implements EstudioClinico {
 
@@ -21,22 +15,97 @@ public class EstudioClinicoBucles implements EstudioClinico {
 
 	public List<PacienteEstudio> pacientesEstudio;
 
-	//-------------------------------------------------------------------//
-
-	//Constructores
-
+	// Constructores
 
 	public EstudioClinicoBucles (List<PacienteEstudio> pacientes) {
 		this.pacientesEstudio= pacientes;
 	}
+	
 	public EstudioClinicoBucles() {
 
 	}
 
-	//-------------------------------------------------------------------//
+	//---------------------- Propiedades de lista ----------------------//
+	
+	// 1) Número Pacientes:
 
-	//Parsealinea
+	public Integer numeroPacientes() {
+		int list= this.pacientesEstudio.size();
+		return list;
 
+	}
+	
+	// 2) Incluye Paciente:
+
+	@Override
+	public void incluyePaciente(PacienteEstudio paciente) {
+		this.pacientesEstudio.add(paciente);
+
+	}
+	
+	// 3) Incluye Pacientes:
+
+	@Override
+	public void incluyePacientes(Collection<PacienteEstudio> pacientes) {
+		this.pacientesEstudio.addAll(pacientes);
+
+	}
+	
+	// 4) Elimina Paciente:
+
+	@Override
+	public void eliminaPaciente(PacienteEstudio paciente) {
+		this.pacientesEstudio.remove(paciente);
+
+	}
+
+	// 5) Esta Paciente:
+	
+	public Boolean estaPaciente(PacienteEstudio paciente) {
+		return this.pacientesEstudio.contains(paciente);
+	}
+
+	// 6) Borra Estudio:
+
+	@Override
+	public void borraEstudio() {
+		this.pacientesEstudio.clear();
+
+	}
+
+	//---------------------- Método de factoría ----------------------//
+	
+	// 7) Método Of:
+	
+	@Override
+	public EstudioClinico of(String nombreFichero) {
+		List<PacienteEstudio> pacientes= leeFichero(nombreFichero);
+		return new EstudioClinicoBucles(pacientes);
+	}
+
+	// 8) Método LeeFichero:
+	
+	public List<PacienteEstudio> leeFichero(String nombreFichero){
+		//	
+		List<PacienteEstudio> res = new ArrayList<>();
+		List<String> aux = null;
+		try {
+			aux = Files.readAllLines(Paths.get(nombreFichero));
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+
+		// Hay que saltarse la primera linea
+		for(String e:aux) {
+			PacienteEstudio p = parseo(e);
+			res.add(p);
+		}
+		return res;
+	}
+	
+	// Parsealinea
+	
 	public static PacienteEstudio parseo(String linea) {
 		//		36306;Male;80;false;false;URBANA;83.84
 		Checkers.checkNoNull("Linea vacia", linea);
@@ -52,96 +121,14 @@ public class EstudioClinicoBucles implements EstudioClinico {
 
 		return new PacienteEstudio (id,genero,edad,hipertension,enfermedadDelCorazon,tipoResidencia,glucosa);
 	}
+	
+	
 
-	//-------------------------------------------------------------------//
+	//---------------------- Tratamientos Secuenciales ----------------------//
+	
+		// Existe para todo:
 
-
-	//	private List<PacienteEstudio> pacientes;
-	//	private PacienteEstudio paciente2;
-	//	public List<PacienteEstudio>() {
-	//		return new ArrayList<PacienteEstudio>(this.pacientes);
-	//	}
-
-	public Integer numeroPacientes() {
-		int list= this.pacientesEstudio.size();
-		return list;
-
-	}
-
-
-	//-------------------------------------------------------------------//
-
-	@Override
-	public void incluyePaciente(PacienteEstudio paciente) {
-		this.pacientesEstudio.add(paciente);
-
-	}
-
-	//-------------------------------------------------------------------//
-
-	@Override
-	public void incluyePacientes(Collection<PacienteEstudio> pacientes) {
-		this.pacientesEstudio.addAll(pacientes);
-
-	}
-
-	//-------------------------------------------------------------------//
-
-	@Override
-	public void eliminaPaciente(PacienteEstudio paciente) {
-		this.pacientesEstudio.remove(paciente);
-
-	}
-
-	//-------------------------------------------------------------------//
-
-	private List<PacienteEstudio> pacientes;
-	public List<PacienteEstudio>getPacientes() {
-		return new ArrayList<PacienteEstudio>(this.pacientes);
-	}
-	public Boolean estaPaciente(PacienteEstudio paciente) {
-		boolean resultado = false;
-		Set<String> res = new HashSet<String>();
-		for (PacienteEstudio e:this.pacientes) {
-			res.add(e.id());
-			if (res.contains(paciente)) {
-				resultado = true;
-			}
-		}
-		return resultado;
-	}
-
-
-	//-------------------------------------------------------------------//
-
-	@Override
-	public void borraEstudio() {
-		this.pacientesEstudio.clear();
-
-	}
-
-	//-------------------------------------------------------------------//
-
-	public List<PacienteEstudio> leeFichero(String nombreFichero){
-		//	
-		List<PacienteEstudio> res = new ArrayList<>();
-		List<String> aux = null;
-		try {
-			aux = Files.readAllLines(Paths.get(nombreFichero));
-
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-
-		// Hay que saltarse la primera lineA
-		for(String e:aux) {
-			PacienteEstudio p = parseo(e);
-			res.add(p);
-		}
-		return res;
-	}
-
-	//-------------------------------------------------------------------//
+	// 9) Todos los Pacientes son del tipo:
 
 	@Override
 	public Boolean todosPacienteSonDelTipo(TipoResidencia tipo) {
@@ -153,9 +140,9 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		}
 		return res;
 	}
-
-	//-------------------------------------------------------------------//
-
+	
+	// 10) Existe algún Paciente del tipo:
+	
 	@Override
 	public Boolean existeAlgunPacienteDelTipo(TipoResidencia tipo) {
 		boolean res = false;
@@ -167,7 +154,7 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		return res;
 	}
 
-	//-------------------------------------------------------------------//
+	// 11) Contador (Número Pacientes factor de riesgo):
 
 	@Override
 	public Integer numeroPacientesFactorRiesgo() {
@@ -180,7 +167,7 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		return res;
 	}
 
-	//-------------------------------------------------------------------//
+	// 12) Media (Edad media pacientes con factor riesgo):
 
 	@Override
 	public Double edadMediaPacientesConFactorRiesgo() {
@@ -195,7 +182,7 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		return edad/divisor;
 	}
 
-	//-------------------------------------------------------------------//d
+	// 13) Filtrado (Filtra pacientes por edad):
 
 	@Override
 	public List<PacienteEstudio> filtraPacientesPorEdad(Double edad) {
@@ -208,8 +195,7 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		return res;
 	}
 
-
-	//-------------------------------------------------------------------//
+	// 14) Map que agrupa (Agrupar pacientes Edad Mayor Que por género).
 
 	@Override
 	public Map<String, List<PacienteEstudio>> agruparPacientesEdadMayorQuePorGenero(Double edad) {
@@ -228,8 +214,8 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		return res;
 	}
 
-	//-------------------------------------------------------------------//
-
+	// 15) Map que realiza un cálculo (Número pacientes por género):
+	
 	@Override
 	public Map<String, Long> numeroPacientesPorGenero() {
 		Map<String, Long> res = new HashMap<String,Long>();
@@ -248,8 +234,7 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		return res;
 	}
 
-
-	//-------------------------------------------------------------------//
+	// 16) Map que realiza un cálculo (Edad Media pacientes por género):
 
 	@Override
 	public Map<String, Double> edadMediaPacientesPorPorGenero() {
@@ -264,6 +249,8 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		
 	}
 	
+	// Función auxiliar:
+	
 	public Double average(List<PacienteEstudio> lista) {
 		Double sum=0.0; 
 		for(PacienteEstudio pe: lista) {
@@ -272,13 +259,4 @@ public class EstudioClinicoBucles implements EstudioClinico {
 		}
 		return sum/lista.size();
 	}
-
-	//-------------------------------------------------------------------//
-
-	@Override
-	public EstudioClinico of(String nombreFichero) {
-		List<PacienteEstudio> pacientes= leeFichero(nombreFichero);
-		return new EstudioClinicoBucles(pacientes);
-	}
-
-}
+}       

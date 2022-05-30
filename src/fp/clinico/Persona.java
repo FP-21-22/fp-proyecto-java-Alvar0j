@@ -25,6 +25,7 @@ public record Persona(
 
 	//Restricciones
 	// Metodo Auxiliar
+	
 	public static Boolean sonDigitos(String cadena) {
 		Boolean res = true;
 		for(int i=0; i<cadena.length();i++) {
