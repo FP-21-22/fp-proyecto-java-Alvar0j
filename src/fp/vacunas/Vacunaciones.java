@@ -80,6 +80,6 @@ public class Vacunaciones {
 								Collectors.maxBy(
 										Comparator.comparing(
 												Vacunacion::numeroTotal)),
-								opt->opt.get().numeroTotal())));
+								optional->optional.get().numeroTotal())));
 	}
 }
