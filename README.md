@@ -1,4 +1,4 @@
-# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \<XX\>/\<YY\>)
+# Proyecto del Segundo Cuatrimestre Fundamentos de Programación (Curso  \2021\/\2022\)
 Autor: Álvaro Jiménez Osuna   uvus:alvjimosu
 
 ## Estructura de las carpetas del proyecto
