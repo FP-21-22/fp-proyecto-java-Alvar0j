@@ -29,7 +29,6 @@ public class TestEstudioClinicoAmpliacionStream {
 		Map<String, Set<PacienteEstudio>> res5 = lista1.agrupaPacientesPorPorGeneroEnConjunto();
 		System.out.println(" 5) Pacientes por genero en conjunto: "+res5);
 		
-		//TODO
 		Map<String, SortedSet<PacienteEstudio>> res6 = lista1.agrupaPacientesPorPorGeneroEnConjuntoOrdenado();
 		System.out.println(" 6) Pacientes por genero en conjunto ordenado: "+res6);
 		
@@ -39,7 +38,6 @@ public class TestEstudioClinicoAmpliacionStream {
 		Map<String, List<Double>> res8 = lista1.listaEdadesPorGenero();
 		System.out.println(" 8) Lista de edades por genero: "+res8);
 		
-		//TODO
 		Map<String, Double> res9 = lista1.edadMaximaPacientesPorGenero();
 		System.out.println(" 9) Lista de edades por genero: "+res9);
 		

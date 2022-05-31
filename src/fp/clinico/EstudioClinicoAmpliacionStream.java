@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.SortedSet;
+import java.util.TreeSet;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
@@ -76,7 +77,9 @@ public class EstudioClinicoAmpliacionStream extends EstudioClinicoStream impleme
 	
 	@Override
 	public Map<String, SortedSet<PacienteEstudio>> agrupaPacientesPorPorGeneroEnConjuntoOrdenado() {
-		return null;
+		return super.pacientesEstudio.stream().
+				collect(Collectors.groupingBy(PacienteEstudio::genero,
+						Collectors.toCollection(TreeSet::new)));
 	}
 	
 	// 7)
@@ -104,8 +107,12 @@ public class EstudioClinicoAmpliacionStream extends EstudioClinicoStream impleme
 	
 	@Override
 	public Map<String, Double> edadMaximaPacientesPorGenero() {
-		return null;
-	
+		return super.pacientesEstudio.stream().
+				collect(Collectors.groupingBy(PacienteEstudio::genero,
+						Collectors.collectingAndThen(
+								Collectors.maxBy(
+										Comparator.comparing(PacienteEstudio::edad)), 
+								x->x.get().edad())));
 	}
 	
 	// 10)
@@ -125,8 +132,4 @@ public class EstudioClinicoAmpliacionStream extends EstudioClinicoStream impleme
 				get().
 				getKey();
 	}
-
-	
-	
-	
 }
