@@ -22,7 +22,6 @@ public class Vacunaciones {
 		this.vacunacion = vacunacion.toList();
 	}
 
-
 	//Métodos
 	
 	// 1) Añade Vacunación:
